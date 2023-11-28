@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block content %}
+
+  <section id="blog_post">
+    <div class="container my-3">
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <div class="card-header">
+              <h4>今日の日記</h4>
+            </div>
+            <div class="card-body">
+              <form method="POST" enctype="multipart/form-data"> <!-- 複数の種類のデータを送信できる -->
+                {{ form.hidden_tag() }} <!-- セキュリティ対策 -->
+                <div class="mb-3">
+                  {{ form.title.label(class="form-control-label") }}
+                  {{ render_field(form.title, class="form-control") }} <!--render_fieldは_formhelpers.htmlで定義している-->
+                </div>
+                <div class="mb-3">
+                  {{ form.category.label(class="form-control-label") }}
+                  {{ render_field(form.category, class="form-control") }}
+                </div>
+                <div class="mb-3">
+                  {{ form.summary.label(class="form-control-label") }}
+                  {{ render_field(form.summary, class="form-control") }}
+                </div>
+                <div class="mb-3">
+                  {{ form.text.label(class="form-control-label") }}
+                  {{ render_field(form.text, class="form-control form-control-lg") }}
+                  <script>
+                    CKEDITOR.replace( 'text' ); //replace('')の中身はnameと揃える
+                  </script>
+                </div>
+                <div class="mb-3">
+                  {{ form.picture.label(class="form-control-label") }}
+                  <br>
+                  {% if form.picture.data %}
+                  <div style="text-align: left;">
+                    <img src="{{ form.picture.data }}">
+                  </div>
+                  {% endif %}
+                  <br>
+                  {{ render_field(form.picture, class="form-control") }}
+                </div>
+                <div class="container mb-3">
+                  <div class="row">
+                    <div class="col-md-3">
+                      {{ form.submit(class="btn btn-success w-100") }}
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% endblock %}

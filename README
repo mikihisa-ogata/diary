@@ -1,0 +1,45 @@
+flask_app/
+  ├─ diary/
+
+      ├─ error_pages/
+          ├─ __init__.py
+          └─ handlers.py
+       
+      ├─ main/
+          ├─ __init__.py
+          ├─ forms.py 入力フォームの作成
+          ├─ image_handler.py 画像の追加
+          └─ views.py ルーティング
+
+      ├─ static/ 画像の管理
+          
+      ├─ templates/
+          ├─ error_pages/
+              ├─ 403.html
+              └─ 404.html
+
+          ├─ users/
+              ├─ account.html
+              ├─ login.html
+              ├─ register.html
+              └─ user_maintenance.html
+
+          ├─ _formhelpers.html
+          ├─ base.html
+          ├─ blog_category.html
+          ├─ blog_maintenance.html
+          ├─ blog_post.html
+          ├─ category_maintenance.html
+          ├─ create_post.html
+          ├─ index.html
+
+      ├─ users/
+          ├─ __init__.py
+          ├─ forms.py
+          └─ views.py
+
+      ├─ __init__.py データベースの設定
+      └─ models.py データベースのクラスを管理
+   
+  ├─ app.py 実行
+  └─ init_db.py データベースの初期化
